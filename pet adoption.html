@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/petadoption.css">
+    <link rel="shortcut icon" href="http://localhost/PetCareProject/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+
+    <!-- Logo and Menu Button -->
+    <div class="navbar">
+        <button class="btn" onclick="openSidebar()">☰</button>
+        <img src="images/logo-png-removebg-preview.png" alt="Claws and Paws Logo" id="logo">
+    </div>
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">×</a>
+        <a href="#"><i class="fas fa-home"></i>Home</a>
+        <a href="#"><i class="fas fa-paw"></i>Adopt a Pet</a>
+        <a href="#"><i class="fas fa-phone-alt"></i>Contact</a>
+    </div>
+
+    <!-- Pet Adoption Section -->
+    <div class="container mt-5">
+        <h2 class="headline">Find Your Furry Best Friend!</h2>
+        <p class="caption">Adopt a pet and give them a forever home. Let’s make some tails wag and hearts purr!</p>
+        <div class="row">
+            <!-- Pet Cards -->
+            
+            <div class="container mt-5">
+                <div class="row" id="adopt-pets-list">
+                    <!-- Pets will be dynamically loaded here -->
+                </div>
+            </div>
+            
+        </div>
+    </div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    fetch("php/get_pets.php")
+        .then(response => response.json())
+        .then(data => {
+            console.log("✅ Pet Data Received:", data); // Debugging output
+
+            let adoptPetsList = document.getElementById('adopt-pets-list');
+            adoptPetsList.innerHTML = ""; // ✅ Clear previous content
+
+            data.forEach((pet) => {
+                console.log(`🐾 Checking pet: ${pet.name}, Image: ${pet.image}`); // Debugging
+
+                // ✅ Ensure the main image is valid
+                let petImage = pet.image && pet.image.startsWith("http") 
+    ? pet.image 
+    : "http://localhost/PetCareProject/images/default-pet.png";
+
+
+                let petCard = `
+                    <div class="col-md-4">
+                        <div class="pet-card" onclick="window.location.href='pet_details.html?pet_id=${pet.pet_id}'">
+                            <h3>${pet.name}</h3>
+                            <p>Breed: ${pet.breed}</p>
+                            <img src="${petImage}" alt="${pet.name}" class="pet-card-image"
+                                onerror="this.onerror=null; this.src='images/default-pet.png';">
+                        </div>
+                    </div>`;
+                adoptPetsList.innerHTML += petCard;
+            });
+        })
+        .catch(error => console.error("❌ Error fetching pets:", error));
+});
+
+</script>
+    
+
+        
+
+    <footer>
+        <p>&copy; 2024 Claws and Paws. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/petadoption.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Routine Tracker</title>
+    <link rel="shortcut icon" href="http://localhost/PetCareProject/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/dailytrackingroutine.css">
+</head>
+<body>
+    <div class="container">
+        <div class="section-title">Pet Routine Checklist</div>
+        <div class="timeline">
+            <div class="milestone">
+                <div class="icon-container">🐾</div>
+                <div class="details">Morning Walk</div>
+                <div class="description">7:00 AM – A refreshing walk for your pet.</div>
+                <input type="checkbox" class="checkbox" onclick="checkCompletion()">
+            </div>
+            <div class="milestone">
+                <div class="icon-container">🍖</div>
+                <div class="details">Feeding Time</div>
+                <div class="description">8:00 AM – Healthy breakfast time.</div>
+                <input type="checkbox" class="checkbox" onclick="checkCompletion()">
+            </div>
+            <div class="milestone">
+                <div class="icon-container">🛁</div>
+                <div class="details">Bath Time</div>
+                <div class="description">1:00 PM – Keep your pet clean and happy.</div>
+                <input type="checkbox" class="checkbox" onclick="checkCompletion()">
+            </div>
+            <div class="milestone">
+                <div class="icon-container">🎾</div>
+                <div class="details">Playtime</div>
+                <div class="description">5:00 PM – Fun and games to energize your pet.</div>
+                <input type="checkbox" class="checkbox" onclick="checkCompletion()">
+            </div>
+            <div class="milestone">
+                <div class="icon-container">✂️</div>
+                <div class="details">Grooming</div>
+                <div class="description">6:30 PM – Time for a tidy up and a little grooming.</div>
+                <input type="checkbox" class="checkbox" onclick="checkCompletion()">
+            </div>
+        </div>
+        <div class="reward" id="reward">Complete all routines to earn a Pawsome Badge!</div>
+    </div>
+
+    <script src="js/dailytrackingroutine.js"></script>
+</body>
+</html>

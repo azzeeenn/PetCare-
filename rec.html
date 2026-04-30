@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rescue a Pet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Garamond&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Garamond', serif;
+            background-color: #FBE9D0; /* Light beige background */
+            color: #244855; /* Dark teal text color */
+            margin: 0;
+        }
+        
+        /* Hero section */
+        .hero-section {
+            background-color: #244855; /* Dark teal background */
+            padding: 30px 0;
+            text-align: center;
+            color: #90AEAD; /* Greenish blue text color */
+        }
+        
+        .hero-section h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .hero-section p {
+            font-size: 18px; /* Increased size for better visibility */
+        }
+
+        /* Rescue form section */
+        #rescue-section {
+            padding: 40px 0;
+background-image: url('https://www.transparenttextures.com/patterns/white-diamond.png');
+            color: #244855; /* Dark teal text color */
+        }
+
+        #rescue-section p {
+            margin-bottom: 10px; /* Reduce space below the paragraph */
+            font-size: 24px; /* Increased size */
+        }
+
+        /* Form container with custom width */
+        .form-container {
+            width: 70%; /* Change to your desired width percentage or set a fixed px value */
+            margin: 0 auto; /* Center the form */
+        }
+
+
+        #rescue-form {
+            margin-top: 0;
+            margin-bottom: 0;
+            background-color: #90AEAD; /* Soft greenish-blue background */
+            padding: 20px;
+            border-radius: 5px;
+            border: 2px solid #244855; /* Dark teal border */
+        }
+
+        .form-group {
+            margin-bottom: 15px; /* Space between form elements */
+        }
+form .form-group label {
+    font-size: 1.2rem; /* Increase the font size */
+}
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #244855; /* Dark teal border */
+            padding: 10px;
+            background-color: #FFFFFF;
+            color: #000000;
+            height: auto;
+            line-height: 1.5;
+        }
+
+        .form-control:focus {
+            border-color: #E64833; /* Bright orange-red focus border */
+        }
+
+        /* Urgency input specific */
+        #urgency {
+            color: #000000;
+            background-color: #FFFFFF;
+            border: 1px solid #244855;
+            padding: 10px;
+            height: auto;
+            line-height: 1.5;
+            font-size: 16px;
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background-color: #244855; /* Dark teal */
+            border-color: #244855;
+        }
+
+        .btn-primary:hover {
+            background-color: #E64833; /* Orange on hover */
+            border-color: #E64833;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #244855;
+            color: #FBE9D0; /* Light beige */
+            padding: 20px 0;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <img src="images/logo-png-removebg-preview.png" alt="Claws and Paws Logo" style="width: 150px; height: auto;"><br><br>
+        <h1><b>Welcome to Claws and Paws</b></h1>
+        <p>Your ultimate pet care companion.</p>
+    </div>
+
+    <!-- Rescue a Pet Form -->
+    <section id="rescue-section">
+        <div class="container">
+            <p>Help us rescue a pet in need. Provide details below to send a rescue request.</p>
+            <!-- Form container with reduced width -->
+            <div class="form-container">
+                <form id="rescue-form" action="rescue.php" method="POST" enctype="multipart/form-data">
+                    
+                    <div class="form-group">
+                        <label for="pet-image">Upload Image of the Pet</label>
+                        <input type="file" class="form-control" id="pet-image" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location (City, Area, Landmark)</label>
+                        <input type="text" class="form-control" id="location" placeholder="Enter the location of the pet" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-type">Pet Type</label>
+                        <select class="form-control" id="pet-type" required>
+                            <option value="dog">Dog</option>
+                            <option value="cat">Cat</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pet-condition">Pet Condition</label>
+                        <textarea class="form-control" id="pet-condition" placeholder="Describe the pet's condition (e.g., injured, sick, hungry)" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-info">Your Contact Information</label>
+                        <input type="text" class="form-control" id="contact-info" placeholder="Your name or phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="additional-notes">Additional Notes</label>
+                        <textarea class="form-control" id="additional-notes" placeholder="Any other important details that may help the rescue team"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="urgency">Urgency Level</label>
+                        <input type="text" class="form-control" id="urgency" placeholder="Low / Medium / High" required>
+                    </div>
+                    <center><button type="submit" class="btn btn-primary">Submit Rescue Request</button></center>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Claws and Paws. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

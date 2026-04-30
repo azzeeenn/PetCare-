@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Dashboard</title>
+    <link rel="stylesheet" href="css\volunteer_dasboard.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- ✅ ADDED -->
+</head>
+<body>
+
+    <h2>Welcome, <span id="volunteer-name"></span>!</h2>
+    <p>Role: <span id="volunteer-role"></span></p>
+
+    <!-- Task Filters -->
+    <div>
+        <button onclick="filterTasks('All')">All</button>
+        <button onclick="filterTasks('Pending')">Pending</button>
+        <button onclick="filterTasks('In Progress')">In Progress</button>
+        <button onclick="filterTasks('Completed')">Completed</button>
+    </div>
+
+    <!-- Task List -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Task ID</th>
+                <th>Task Name</th>
+                <th>Location</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody id="volunteerTaskList">
+            <!-- Tasks will be dynamically loaded here -->
+        </tbody>
+    </table>
+
+    <script src="js/volunteer_dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<?php
+// Include your database connection
+$conn = new mysqli("localhost", "root", "", "petcare");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch data from the rescue_requests table
+$sql = "SELECT * FROM rescue_requests";
+$result = $conn->query($sql);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Rescue Management</title>
+<link rel="stylesheet" href="../css/formpetrescue.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Pet Rescue Management</h1>
+  </header>
+
+  <nav class="navigation">
+    <a href="../adminside/superadmin.html">Dashboard</a>
+    <a href="../adminside/usermanagement.html">User Management</a>
+    <a href="../adminside/sheltermanagement.html">Shelter Management</a>
+    <a href="../adminside/donationmanagement.html">Donations</a>
+    <a href="../adminside/petrescuemanagement.html">Pet Rescue Management</a>
+    <a href="../adminside/petrescuemanagement.html" class="active">Pet Rescue Form Details Management</a>
+  </nav>
+
+  <h2><center>Rescue Pet List</center></h2>
+
+  <table id="rescueTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Location</th>
+        <th>Pet Type</th>
+        <th>Pet Condition</th>
+        <th>Contact Info</th>
+        <th>Additional Info</th>
+        <th>Urgency</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+      // Check if there are any results
+      if ($result->num_rows > 0) {
+          // Loop through each record and display it in the table
+          while($row = $result->fetch_assoc()) {
+              echo "<tr>";
+              echo "<td>" . $row['id'] . "</td>";  // Assuming 'id' is the primary key
+              echo "<td>" . $row['location'] . "</td>";
+              echo "<td>" . $row['pet_type'] . "</td>";
+              echo "<td>" . $row['pet_condition'] . "</td>";
+              echo "<td>" . $row['contact_info'] . "</td>";
+              echo "<td>" . $row['additional_notes'] . "</td>";
+              echo "<td>" . $row['urgency'] . "</td>";
+              echo "</tr>";
+          }
+      } else {
+          // If no results found, display this message
+          echo "<tr><td colspan='7'>No rescue requests found.</td></tr>";
+      }
+
+      // Close the connection
+      $conn->close();
+      ?>
+    </tbody>
+  </table>
+
+  <script src="js/petrescuemanagement.js"></script>
+
+</body>
+</html>

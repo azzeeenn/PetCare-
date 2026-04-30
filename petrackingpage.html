@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Routine Tracker</title>
+    <link href="css/pettrackingpage.css" rel="stylesheet"> <!-- Link to the external CSS -->
+    <link rel="shortcut icon" href="http://localhost/PetCareProject/favicon.ico" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome -->
+</head>
+<body>
+    <button class="menu-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i> <!-- Hamburger menu icon -->
+    </button>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="profile.html"><i class="fas fa-paw"></i> Profile of the Pet</a>
+        <a href="trackingvaccinationrecords.html"><i class="fas fa-heartbeat"></i> Pet Health</a>
+        <a href="trackingemergencycontact.html"><i class="fas fa-plus-circle"></i> Emergency Vet Contact</a>
+        <a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+    <!-- Main Content -->
+    <div class="content">
+        <div class="hero">
+            <img src="images/logo-png-removebg-preview.png" alt="Claws and Paws Logo">
+            <h1>Your Pet's Daily Care, Simplified</h1>
+            <p>Track routines, health, and everything your pet needs to stay happy and healthy! Our easy-to-use interface helps you stay organized and informed.</p>
+        </div>
+
+        <div class="section">
+            <div class="card">
+                <h2>Daily Routine</h2>
+                <p>Plan and track daily activities for your pet, including feeding, walking, and playtime.</p>
+                <a href="trackingdailyroutine.html">
+                    <button>Go to routine</button>
+                </a>
+            </div>
+
+            <div class="card">
+                <h2>Pet Health</h2>
+                <p>Track your pet's health, including vaccinations and medication.</p>
+                <a href="trackingvaccinationrecords.html">
+                    <button>Go to routine</button>
+                </a>
+            </div>
+
+            <div class="card">
+                <h2>Monthly Overview</h2>
+                <p>Check your monthly overview routine here.</p>
+                <a href="monthlyoverview.html">
+                    <button>Monthly overview</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Claws and Paws. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/pettrackingpage.js"></script> <!-- Link to the external JavaScript -->
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grooming Goals</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Garamond, serif;
+            color: #244855; /* Dark Teal Text Color */
+            background-color: #FBE9D0;
+        }
+
+        .hero {
+            background-color: #244855; /* Dark Teal */
+            color: #90AEAD; /* Soft Greenish-Blue */
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .section {
+            padding: 40px 20px;
+            background-color: #90AEAD;  /* Soft Greenish-Blue */
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature h2 {
+            font-size: 24px;
+            color: #244855; /* Dark Teal */
+        }
+
+        .form-card {
+            background-color: #FBE9D0; /* Light Beige */
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;  /* Adjust the max-width to your preferred size */
+            margin: 0 auto;  /* Center the form */
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #244855; /* Dark Teal */
+            color: #FBE9D0; /* Light Beige Text */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #874F41;
+        }
+
+        .footer {
+            background-color: #244855; /* Dark Teal */
+            color: #FBE9D0; /* Light Beige */
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer a {
+            color: #FBE9D0; /* Light Beige */
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <img src="C:\Users\azeen\Downloads\logo-png-removebg-preview.png" alt="Claws and Paws Logo" style="width: 150px; height: auto;">
+        <h1><b>Grooming Goals</b></h1>
+        <p>Schedule your pet's grooming session at a nearby parlor!</p>
+    </div>
+
+    <!-- Grooming Scheduling Section -->
+    <section class="section">
+        <div class="container">
+            <div class="feature">
+                <h2><b>Schedule Your Pet's Grooming Appointment</b></h2>
+                <div class="form-card">
+                    <form>
+                        <label for="parlor">Choose a Grooming Parlor:</label>
+                        <select id="parlor" name="parlor" class="form-control">
+                            <option value="Happy Tails">Happy Tails</option>
+                            <option value="Fur Haven">Fur Haven</option>
+                            <option value="Paws & Relax">Paws & Relax</option>
+                            <option value="The Grooming Loft">The Grooming Loft</option>
+                        </select>
+
+                        <label for="appointment-date">Select a Date:</label>
+                        <input type="date" id="appointment-date" name="appointment-date" class="form-control">
+
+                        <label for="appointment-time">Select a Time:</label>
+                        <input type="time" id="appointment-time" name="appointment-time" class="form-control">
+
+                        <label for="additional-services">Additional Services:</label>
+                        <textarea id="additional-services" name="additional-services" class="form-control" placeholder="E.g., nail trimming, ear cleaning, etc."></textarea>
+
+                        <button type="button" onclick="alert('Your grooming appointment has been scheduled!')">Schedule Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>© 2024 Claws and Paws. All rights reserved.</p>
+        <p><a href="#">Contact Us</a></p>
+        <img src="C:\Users\azeen\Downloads\logo-png-removebg-preview.png" alt="Claws and Paws Logo" style="width: 80px; height: auto;">
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="http://localhost/PetCareProject/favicon.ico" type="image/x-icon">
+    <title>Sign in & Sign up Form</title>
+    <link rel="stylesheet" href="css/loginsignup.css">
+</head>
+<body>
+
+<main>
+    <div class="box">
+        <div class="inner-box">
+            <div class="forms-wrap">
+                <!-- Sign In Form -->
+                <form class="sign-in-form" method="post" id="login-form">
+                    <div class="logo">
+                        <img src="images/logo-png-removebg-preview.png" alt="">
+                        <h4>Claws and Paws</h4>
+                    </div>
+                    <div class="heading">
+                        <h2>Welcome Back!</h2>
+                        <h6>Sign in to your account</h6>
+                    </div>
+
+                    <div class="input-wrap">
+                        <input type="email" name="email" id="login-email" class="input-field" required>
+                        <label>Email</label>
+                    </div>
+
+                    <div class="input-wrap">
+                        <input type="password" name="password" id="login-password" class="input-field" required minlength="6">
+                        <label>Password</label>
+                    </div>
+
+                    <!-- Login Message -->
+                    <p id="login-message" style="display: none;"></p>
+
+                    <button class="sign-btn" type="submit">Login</button>
+
+                    <div class="text">
+                        <span>Don't have an account? <a href="#" class="toggle">Sign Up</a></span>
+                    </div>
+                </form>
+
+                <!-- Sign Up Form -->
+                <form class="sign-up-form" method="post" id="signup-form">
+                    <div class="logo">
+                        <img src="images/logo-png-removebg-preview.png" alt="">
+                        <h4>Claws and Paws</h4>
+                    </div>
+                    <div class="heading">
+                        <h2>Welcome to Claws and Paws!</h2>
+                        <h6>Create an account</h6>
+                    </div>
+
+                    <div class="input-wrap">
+                        <input type="text" name="name" id="signup-name" class="input-field" required>
+                        <label>Name</label>
+                    </div>
+
+                    <div class="input-wrap">
+                        <input type="email" name="email" id="signup-email" class="input-field" required>
+                        <label>Email</label>
+                    </div>
+
+                    <div class="input-wrap">
+                        <input type="password" name="password" id="signup-password" class="input-field" required minlength="6">
+                        <label>Password</label>
+                    </div>
+
+                    <div class="input-wrap">
+                        <input type="password" name="confirm_password" id="signup-confirm-password" class="input-field" required>
+                        <label>Confirm Password</label>
+                    </div>
+
+                    <!-- Volunteer Role Selection -->
+                    <div class="input-wrap">
+                        <select name="role" id="signup-role" class="input-field" required>
+                            <option value="" disabled selected>Select Role</option>
+                            <option value="rescue">Rescue Volunteer</option>
+                            <option value="pet_care">Pet Care Volunteer</option>
+                            <option value="other">General Volunteer</option>
+                        </select>
+                        <label></label>
+                    </div>
+
+                    <!-- Signup Confirmation Message -->
+                    <p id="signup-message" style="display: none;"></p>
+
+                    <button class="sign-btn" type="submit">Sign Up</button>
+
+                    <div class="text">
+                        <span>Already have an account? <a href="#" class="toggle">Sign In</a></span>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Carousel -->
+            <div class="carousel">
+                <div class="images-wrapper">
+                    <img src="images/catlogin2.jpg" class="image img-1 show" alt="">
+                    <img src="images/login.jpg" class="image img-2">
+                    <img src="images/catloginpage.jpg" class="image img-3">
+                </div>
+
+                <div class="text-slider">
+                    <div class="text-wrap">
+                        <div class="text-group">
+                            <h2>Rescue Stray Pets</h2>
+                            <h2>Track Pet Care</h2>
+                            <h2>Save Lives, One Pet at a Time</h2>
+                        </div>
+                    </div>
+
+                    <div class="bullets">
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="js/volunteerloginsignup.js"></script>
+
+</body>
+</html>

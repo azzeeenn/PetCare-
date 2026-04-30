@@ -1,0 +1,114 @@
+<head>
+    <link rel="stylesheet" href="css/adoptingpets.css">
+
+    <style>
+        #gallery-img1, #gallery-img2, #gallery-img3 {
+            width: 300px;  
+            height: 250px; 
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<div class="container">
+    <div class="hero-section">
+        <h1 id="hero-title">Meet Your New Best Friend!</h1>
+    </div>
+
+    <!-- Pet Details Section -->
+    <div class="pet-details">
+        <div class="pet-photo">
+            <img id="main-image" src="" alt="Pet Main Image">
+        </div>
+
+        <div class="pet-info-card">
+            <h2 id="pet-name"></h2>
+            <p><strong>Age:</strong> <span id="pet-age"></span></p>
+            <p><strong>Breed:</strong> <span id="pet-breed"></span></p>
+            <p><strong>Gender:</strong> <span id="pet-gender"></span></p>
+            <p><strong>Color:</strong> <span id="pet-color"></span></p>
+            <p><strong>Weight:</strong> <span id="pet-weight"></span></p>
+            <p><strong>Current Location:</strong> <span id="pet-location"></span></p>
+            <p><strong>Price:</strong> ₹<span id="pet-price"></span></p>
+        </div>
+    </div>
+    
+    
+    <center>
+        <a id="adopt-button" class="adopt-button">Adopt Me</a>
+    </center>
+    <!-- Pet Gallery -->
+    <h3 class="text-center" style="font-size: 2em; margin-top: 50px; text-align: center;">Gallery</h3>
+    <center>
+        <div class="pet-gallery">
+            <img id="gallery-img1" src="" alt="Gallery 1">
+            <img id="gallery-img2" src="" alt="Gallery 2">
+            <img id="gallery-img3" src="" alt="Gallery 3">
+        </div>
+    </center>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const petId = urlParams.get("pet_id");
+
+        if (!petId) {
+            console.error("❌ Pet ID not found in URL!");
+            return;
+        }
+
+        fetch(`php/get_pet_details.php?pet_id=${petId}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log("✅ Pet Data Received:", data); // Debugging output
+
+                if (!data || data.error) {
+                    console.error("❌ Invalid pet data received:", data);
+                    return;
+                }
+
+                // ✅ Function to safely set text content
+                const setText = (id, value) => {
+                    let el = document.getElementById(id);
+                    if (el) el.textContent = value;
+                };
+
+                // ✅ Function to safely set image sources (Handles full URLs & relative paths)
+                const setImage = (id, src) => {
+                    let el = document.getElementById(id);
+                    if (el && src && src.trim() !== "" && src !== "null") {
+                        el.src = src.startsWith("http") ? src : "uploads/" + src;
+                        el.style.display = "block";
+                    } else {
+                        console.warn(`⚠ Image ${id} is missing or invalid.`);
+                    }
+                };
+
+                // ✅ Assign pet details
+                setText("hero-title", `Meet ${data.name}, Your New Best Friend!`);
+                setText("pet-name", data.name);
+                setText("pet-age", data.age + " years");
+                setText("pet-breed", data.breed);
+                setText("pet-gender", data.gender);
+                setText("pet-color", data.color);
+                setText("pet-weight", data.weight + " kg");
+                setText("pet-location", data.current_location);
+                setText("pet-price", data.price);
+
+                // ✅ Assign images safely (Fixing path issue)
+                setImage("main-image", data.image);
+                setImage("gallery-img1", data.gallery_img1);
+                setImage("gallery-img2", data.gallery_img2);
+                setImage("gallery-img3", data.gallery_img3);
+
+                // ✅ Update adopt button link
+                document.getElementById("adopt-button").href = `adoptionportalanimals/adoptiongform.html?pet_id=${petId}`;
+            })
+            .catch(error => console.error("❌ Fetch error:", error));
+    });
+</script>
+
+    

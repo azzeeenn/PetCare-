@@ -1,0 +1,115 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location:petaccountcreating.html"); // Redirect to login if not logged in
+    exit();
+}
+echo "User ID: " . $_SESSION['user_id']; // Debugging line
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Profile</title>
+  <link rel="stylesheet" href="css/finalpetprofile.css">
+  <link rel="shortcut icon" href="http://localhost/PetCareProject/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <img src="images/logo-png-removebg-preview.png" alt="Claws and Paws Logo" style="width: 80px; height: auto;">
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="./petrackingpage.html">Pet’s Daily Care</a></li>
+      <li><a href="trackingemergencycontact.html">Emergency Contact</a></li>
+<li><a href="#" id="upload-pet-images-btn">Upload Pet Images</a></li>
+      <li><a href="index.html">Log Out</a></li>
+      
+    </ul>
+  </nav>
+
+  <!-- Modal for Uploading Images -->
+  <div id="imageUploadModal" class="modal">
+    <div class="modal-content">
+      <span class="close" tabindex="0">&times;</span>
+      <h2>Upload Pet Images</h2>
+      <input type="file" id="imageInput" multiple accept="image/*">
+      <button id="uploadBtn">Upload</button>
+    </div>
+  </div>
+
+  <!-- Pet Profile Header -->
+  <div class="pet-profile-header">
+    <h1>Pet Profile</h1>
+    <img class="pet-display-image" src="images/pet-image.jpg" alt="Pet Image">
+  </div>
+
+  <!-- Profile Cards Container -->
+  <div class="profile-container">
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2 class="pet-name">Owner Info</h2>
+        </div>
+        <div class="card-back">
+          <h3>Owner's Name:</h3>
+          <p>Owner's Email:</p>
+          <p>Owner's Experience:</p>
+          <p>Living Situation:</p>
+          <p>Other Pets:</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2 class="pet-name">Pet Info</h2>
+        </div>
+        <div class="card-back">
+          <h3>Pet's Name:</h3>
+          <p>Breed:</p>
+          <p>Birthday:</p>
+          <p>Gender:</p>
+          <p>Special Needs:</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2 class="pet-name">Additional Info</h2>
+        </div>
+        <div class="card-back">
+          <h3>Pet's Temperament:</h3>
+          <p>Favorite Activities:</p>
+          <p>Trained:</p>
+          <p>Previous Ownership:</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pet Gallery -->
+  <div class="pet-gallery">
+    <h2>Pet Gallery</h2>
+    <div class="gallery-container">
+
+    </div>
+  </div>
+
+  <script src="js/petprofile.js"></script>
+  
+</body>
+
+
+</html>

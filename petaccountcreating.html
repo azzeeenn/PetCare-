@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paws and Claws Multi-Step Form</title>
+  <link rel="stylesheet" href="css/petaccountcreating.css">
+  <link rel="shortcut icon" href="http://localhost/PetCareProject/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+  <div class="container">
+    <div class="left-section">
+      <div class="logo">
+        <img src="images/logo-png-removebg-preview.png" alt="Logo">
+      </div>
+      <div class="logo-text">Paws and Claws</div>
+      <div class="steps">
+        <div class="step active">Human Profile</div>
+        <div class="step">Pet Basics</div>
+        <div class="step">Pet Details</div>
+        
+      </div>
+    </div>
+
+    <div class="right-section">
+      <form action="petaccountcreated.php" method="POST">
+        <!-- Step 1: Human Profile -->
+        <div class="form-step" id="step-1">
+          <h1>Step 1: Human Profile</h1>
+          <label for="owner-name">Owner's Name</label>
+          <input type="text" id="owner-name" name="owner_name" placeholder="Enter your full name" required>
+          
+          <label for="owner-email">Owner's Email</label>
+          <input type="email" id="owner-email" name="owner_email" placeholder="Enter your email" required>
+          
+          <label for="owner-experience">How long have you been a pet owner?</label>
+          <input type="text" id="owner-experience" name="owner_experience" placeholder="E.g., 3 years, first-time owner" required>
+          
+          <label for="living-situation">Living Situation</label>
+          <input type="text" id="living-situation" name="living_situation" placeholder="E.g., Apartment, House with yard" required>
+          
+          <label for="other-pets">Do you have any other pets?</label>
+          <input type="text" id="other-pets" name="other_pets" placeholder="E.g., Yes, 1 cat & 2 dogs" required>
+
+          <button class="next-btn">Next</button>
+        </div>
+
+        <!-- Step 2: Pet Basics -->
+        <div class="form-step hidden" id="step-2">
+          <h1>Step 2: Pet Basics</h1>
+          <label for="pet-name">Pet's Name</label>
+          <input type="text" id="pet-name" name="pet_name" placeholder="Enter your pet's name" required>
+
+          <label for="pet-breed">Breed</label>
+          <input type="text" id="pet-breed" name="pet_breed" placeholder="Enter your pet's breed" required>
+
+          <label for="pet-birthday">Birthday</label>
+          <input type="date" id="pet-birthday" name="pet_birthday" required>
+
+          <label for="pet-gender">Pet's Gender</label>
+          <select id="pet-gender" name="pet_gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+
+          <button class="back-btn">Back</button>
+          <button class="next-btn">Next</button>
+        </div>
+
+        <!-- Step 3: Pet Details -->
+        <div class="form-step hidden" id="step-3">
+          <h1>Step 3: Pet Details</h1>
+          <label for="pet-temperament">Pet's Temperament</label>
+          <input type="text" id="pet-temperament" name="pet_temperament" placeholder="E.g., Friendly, Aggressive, Calm" required>
+
+          <label for="pet-activities">Pet's Favorite Activities</label>
+          <input type="text" id="pet-activities" name="pet_activities" placeholder="E.g., Fetch, Running, Sleeping" required>
+
+          <label for="pet-training">Has the pet been trained?</label>
+          <select id="pet-training" name="pet_training">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+
+          <button class="back-btn">Back</button>
+          <button type="submit" id="submit-btn">Submit</button>
+
+
+        </div>
+
+        <!-- Step 4: Confirm -->
+        
+      </form>
+    </div>
+  </div>
+
+  <script src="js/petaccountcreating.js"></script>
+</body>
+</html>

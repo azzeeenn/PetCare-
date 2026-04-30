@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claws and Paws - Vaccination Records</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://localhost/PetCareProject/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/trackingvaccinationrecords.css"> <!-- Updated to relative path -->
+</head>
+<body>
+
+    <!-- Vaccination Records Section -->
+    <section id="vaccination" class="section">
+        <div class="container">
+            <h2>Vaccination Records</h2>
+
+            <!-- Previous Vaccinations Table -->
+            <div class="table-card">
+                <h3 class="text-center">Previous Vaccinations</h3>
+                <table id="vaccination-table">
+                    <thead>
+                        <tr>
+                            <th>Vaccine Name</th>
+                            <th>Date of Vaccination</th>
+                            <th>Next Due Date</th>
+                            <th>Veterinarian Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rabies</td>
+                            <td>2024-01-01</td>
+                            <td>2025-01-01</td>
+                            <td>All good, no issues</td>
+                        </tr>
+                        <tr>
+                            <td>Parvo</td>
+                            <td>2024-03-01</td>
+                            <td>2025-03-01</td>
+                            <td>Nothing special to report</td>
+                        </tr>
+                        <tr>
+                            <td>Distemper</td>
+                            <td>2024-06-15</td>
+                            <td>2025-06-15</td>
+                            <td>Healthy as usual</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br><br>
+
+            <!-- Vaccination Record Form -->
+            <div class="form-card">
+                <form id="vaccination-form">
+                    <label for="vaccine-name">Vaccine Name:</label>
+                    <input type="text" id="vaccine-name" name="vaccine-name" class="form-control" required>
+                    
+                    <label for="vaccination-date">Date of Vaccination:</label>
+                    <input type="date" id="vaccination-date" name="vaccination-date" class="form-control" required>
+                    
+                    <label for="next-due">Next Due Date:</label>
+                    <input type="date" id="next-due" name="next-due" class="form-control" required>
+                    
+                    <label for="vet-notes">Veterinarian Notes:</label>
+                    <textarea id="vet-notes" name="vet-notes" class="form-control" required></textarea>
+                    
+                    <center><button type="submit">Save Vaccination Record</button></center>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="js/trackingvaccinationrecords.js"></script> <!-- Updated to relative path -->
+</body>
+</html>

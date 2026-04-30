@@ -1,0 +1,13 @@
+Array
+(
+    [id] => 1
+    [status] => declined
+)
+ID: 3, Team: Team Bravo
+ID: 3, Team: Team Alpha
+ID: 3, Team: Team Alpha
+ID: 3, Team: Team Alpha
+ID: 7, Team: Team Delta
+ID: 6, Team: Team Alpha
+ID: 8, Team: Team Alpha
+ID: 4, Team: Team Alpha
