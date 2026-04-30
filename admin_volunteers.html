@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="http://localhost/PetCareProject/favicon.ico" type="image/x-icon">
+
+    <title>Volunteer Management</title>
+    <link rel="stylesheet" href="../css/admin_volunteers.css">
+</head>
+<body>
+    <header>
+        <h1>Volunteer Management</h1>
+    </header>
+    <nav class="nav">
+        <a href="../adminside/rescueform.php">Pet Rescue Form Details Management</a>
+        <a href="../adminside/admin_pets.php" >Pet Adoption Management</a>
+        <a href="../adminside/adminadoptionprocessing.html" >Pet Adoption Requests Management</a>
+        <a href="../adminside/admin_volunteers.html" class="active">Volunteer Management</a>
+        <a href="../adminside/admin_assign_task.html" >Volunteer task Management</a>
+    </nav>
+
+    
+   
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Action</th> <!-- ✅ This stays for buttons -->
+            </tr>
+        </thead>
+        
+        
+        <tbody id="volunteerList"> <!-- ✅ Make sure this ID matches -->
+            <!-- Volunteers will be dynamically loaded here -->
+        </tbody>
+    </table>
+    
+
+    <script src="../js/admin_volunteers.js"></script>  <!-- ✅ Correct path -->
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Assign Tasks</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../css/adminassigntask.css">
+
+    <link rel="shortcut icon" href="http://localhost/PetCareProject/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+    <header>
+        <h1>Volunteer task Management</h1>
+    </header>
+
+    <nav class="navigation">
+        <a href="../adminside/rescueform.php">Pet Rescue Form Details Management</a>
+        <a href="../adminside/admin_pets.php" >Pet Adoption Management</a>
+        <a href="../adminside/adminadoptionprocessing.html" >Pet Adoption Requests Management</a>
+        <a href="../adminside/admin_volunteers.html" >Volunteer Management</a>
+        <a href="../adminside/admin_assign_task.html" class="active">Volunteer task Management</a>
+
+    </nav>
+    <h2>Assign Task to Volunteer</h2>
+
+    <form id="assignTaskForm">
+        <label for="volunteer">Select Volunteer:</label>
+        <select id="volunteer" name="volunteer_id" required></select>
+
+        <label for="task_name">Task Name:</label>
+        <input type="text" id="task_name" name="task_name" required>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+
+        <label for="priority">Priority:</label>
+        <select id="priority" name="priority">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+
+        <button type="submit">Assign Task</button>
+    </form>
+
+    <h2>Assigned Tasks</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Volunteer</th>
+                <th>Task</th>
+                <th>Location</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="taskList"></tbody>
+    </table>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    loadVolunteers();
+    loadTasks();
+
+    document.getElementById("assignTaskForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        assignTask();
+    });
+});
+
+// ✅ Load Volunteers
+function loadVolunteers() {
+    fetch("/PetCareProject/php/get_volunteers.php")
+        .then(response => response.json())
+        .then(data => {
+            console.log("🟢 Volunteer Data from Backend:", data); // ✅ Debugging
+
+            // ✅ Fix: Ensure `data.volunteers` exists
+            const volunteers = data.volunteers || data;
+
+            if (!Array.isArray(volunteers)) {
+                console.error("❌ Error: Invalid volunteer data format!", data);
+                return;
+            }
+
+            const volunteerSelect = document.getElementById("volunteer");
+            volunteerSelect.innerHTML = "<option value=''>Select Volunteer</option>";
+
+            volunteers.forEach(volunteer => {
+                let option = document.createElement("option");
+                option.value = volunteer.id;
+                option.textContent = `${volunteer.name} (${volunteer.role})`;
+                volunteerSelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error("❌ Error loading volunteers:", error));
+}
+
+
+// ✅ Load Tasks
+function loadTasks() {
+    fetch("/PetCareProject/php/get_tasks.php")
+        .then(response => response.json())
+        .then(data => {
+            console.log("🟢 Tasks Loaded from Backend:", data); // ✅ Debugging
+
+            const taskList = document.getElementById("taskList");
+            if (!taskList) {
+                console.error("❌ Error: Task list table body not found!");
+                return;
+            }
+
+            taskList.innerHTML = ""; // Clear previous tasks
+
+            if (!data.tasks || data.tasks.length === 0) {
+                taskList.innerHTML = "<tr><td colspan='6'>No tasks assigned.</td></tr>";
+                return;
+            }
+
+            data.tasks.forEach(task => {
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${task.id}</td>
+                    <td>${task.volunteer_name}</td>
+                    <td>${task.task_name}</td>
+                    <td>${task.location}</td>
+                    <td>${task.priority}</td>
+                    <td>${task.status}</td>
+                    <td><button class="delete-btn" onclick="deleteTask(${task.id})">Delete</button></td>
+                `;
+                taskList.appendChild(row);
+            });
+
+            console.log("✅ Tasks successfully displayed in Admin Panel.");
+        })
+        .catch(error => console.error("❌ Error loading tasks:", error));
+}
+
+// ✅ Assign Task (100% FIXED)
+function assignTask() {
+    const taskData = {
+        volunteer_id: Number(document.getElementById("volunteer").value),
+        task_name: document.getElementById("task_name").value.trim(),
+        location: document.getElementById("location").value.trim(),
+        priority: document.getElementById("priority").value
+    };
+
+    console.log("🔵 Sending Task Data (FORCED JSON):", JSON.stringify(taskData));
+
+    fetch("/PetCareProject/php/assign_task.php", {
+        method: "POST",
+        headers: { 
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(taskData)  // ✅ THIS ENSURES JSON IS SENT
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("🟢 Server Response:", data);
+        if (data.success) {
+            alert("✅ Task Assigned Successfully!");
+            loadTasks();
+        } else {
+            alert("❌ Error: " + data.error);
+        }
+    })
+    .catch(error => console.error("❌ Task Assignment Error:", error));
+}
+function deleteTask(taskId) {
+    if (!confirm("Are you sure you want to delete this task?")) return;
+
+    fetch(`/PetCareProject/php/delete_task.php?task_id=${taskId}`, {
+        method: "GET"
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("✅ Task deleted successfully!");
+            loadTasks(); // Refresh the table
+        } else {
+            alert("❌ Error: " + data.error);
+        }
+    })
+    .catch(error => console.error("❌ Task Deletion Error:", error));
+}
+
+
+    </script>
+
+</body>
+</html>

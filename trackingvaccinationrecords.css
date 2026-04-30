@@ -1,0 +1,90 @@
+html, body {
+    min-height: 100%;
+    margin: 0;
+    font-family: Garamond, serif;
+    color: #244855;
+    background: linear-gradient(to right, #90AEAD, #244855);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background 0.5s ease;
+}
+
+.section {
+    padding: 40px 20px;
+    background-color: transparent;
+}
+
+.form-card {
+    background: linear-gradient(to right, #90AEAD, #FBE9D0);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.form-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background-color: #244855;
+    color: #FBE9D0;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #874F41;
+}
+
+.table-card {
+    background-color: #FBE9D0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #244855;
+}
+
+th {
+    background-color: #244855;
+    color: #FBE9D0;
+}
+
+td {
+    background-color: #90AEAD;
+    color: #244855;
+}
+
+h2 {
+    font-size: 40px;
+    text-align: center;
+    color: #244855;
+    font-weight: bold;
+    transition: font-size 0.3s ease;
+}
+
+h2:hover {
+    font-size: 42px;
+}
+
+.form-card label {
+    font-size: 18px;
+    font-weight: bold;
+}

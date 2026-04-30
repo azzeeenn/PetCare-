@@ -1,0 +1,65 @@
+/* General Styles */
+body {
+    font-family: 'Garamond', serif;
+    background-color: #FBE9D0;
+    color: #244855;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Story Content Container */
+.story-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Heading Style */
+.story-content h1 {
+    font-size: 3rem;
+    color: #E64833;
+    margin-bottom: 20px;
+}
+
+/* Image Styling */
+.story-content img {
+    width: 80%;
+    height: auto;
+    max-height: 700px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.story-content img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Paragraph Styling */
+.story-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding-bottom: 30px;
+}
+
+/* Back Button */
+.back-btn {
+    background-color: #244855;
+    color: #FBE9D0;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 50px;
+}
+
+.back-btn:hover {
+    background-color: #E64833;
+}

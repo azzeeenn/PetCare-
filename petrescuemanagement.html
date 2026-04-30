@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="http://localhost/PetCareProject/favicon.ico" type="image/x-icon">
+  <title>Pet Rescue Management</title>
+<link rel="stylesheet" href="../css/petrescuemanagament.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Pet Rescue Management</h1>
+  </header>
+
+<nav class="navigation">
+<a href="../adminside/superadmin.html">Dashboard</a>
+  <a href="../adminside/usermanagement.html">User Management</a>
+  <a href="../adminside/sheltermanagement.html">Shelter Management</a>
+  <a href="../adminside/donationmanagement.html" >Donations</a>
+  <a href="../adminside/petrescuemanagement.html" class="active">Pet Rescue Management</a>
+  <a href="../adminside/rescueform.php">Pet Rescue Form Details Management</a>
+  <a href="../adminside/admin_pets.php" >Pet Adoption Management</a>
+  <a href="../adminside/adminadoptionprocessing.html" >Pet Adoption Requests Management</a>
+  <a href="../adminside/admin_volunteers.html" >Volunteer Management</a>
+
+
+
+</nav>
+
+  <div class="dashboard">
+    <div class="info-card">
+      <h3>Total Pets Rescued</h3>
+      <p id="totalRescued">0</p>
+    </div>
+    <div class="info-card">
+      <h3>Pets Needing Care</h3>
+      <p id="petsNeedingCare">0</p>
+    </div>
+  </div>
+
+  <div class="form-container">
+    <h2>Add Rescue Pet</h2>
+    <form id="rescueForm">
+      <input type="text" id="petName" placeholder="Pet Name" required>
+      <input type="text" id="petBreed" placeholder="Pet Breed" required>
+      <select id="petCondition" required>
+        <option value="Healthy">Healthy</option>
+        <option value="Injured">Injured</option>
+        <option value="Diseased">Diseased</option>
+      </select>
+      <textarea id="petHistory" placeholder="Pet's History (if any)" rows="4"></textarea><br>
+      <button type="submit" class="cta-btn">Add Pet</button>
+    </form>
+  </div>
+
+  <h2><center>Rescue Pet List</center></h2>
+  <table id="rescueTable">
+    <thead>
+      <tr>
+        <th>Pet Name</th>
+        <th>Breed</th>
+        <th>Condition</th>
+        <th>History</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Rescued Pets will be added here dynamically -->
+    </tbody>
+  </table>
+
+  <script src="js/petrescuemanagement.js"></script> <!-- Changed to relative path -->
+
+</body>
+</html>

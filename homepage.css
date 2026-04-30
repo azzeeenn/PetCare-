@@ -1,0 +1,279 @@
+        /* General Styles */
+        body {
+            font-family: 'Garamond', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FBE9D0; /* Light beige */
+            color: #244855; /* Dark teal */
+            overflow-x: hidden;
+        }
+        h1, h2, h3, p {
+            margin: 0;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #244855; /* Dark teal */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+        }
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #FBE9D0; /* Light beige */
+        }
+        nav .logo img {
+            width: 50px; /* Logo size */
+            height: auto;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            color: #FBE9D0; /* Light beige */
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 15px 20px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        nav ul li a:hover {
+            background-color: #E64833; /* Bright orange-red */
+            transform: scale(1.1);
+        }
+       nav ul .dropdown {
+    position: relative; /* Ensures dropdown items are positioned relative to the parent */
+}
+
+nav ul .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #244855; /* Same as navbar */
+    padding: 10px 0;
+    border-radius: 5px;
+    z-index: 1000;
+    width: auto; /* Adjust to auto or a fixed value */
+    min-width: 180px; /* Prevents small dropdown menus */
+}
+
+nav ul .dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #FBE9D0;
+    transition: background 0.3s;
+}
+
+nav ul .dropdown-menu a:hover {
+    background-color: #E64833; /* Bright orange-red */
+}
+
+nav ul .dropdown:hover .dropdown-menu {
+    display: block;
+}
+        /* Hero Section */
+.hero {
+    background: url('../images/image.avif') no-repeat center center/cover;
+    text-align: center;
+    padding: 80px 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for better text readability */
+    z-index: 1;
+}
+
+.hero h1, .hero p, .hero button {
+    position: relative;
+    z-index: 2; /* Ensure text and button are above the overlay */
+}
+        .hero h1 {
+            font-size: 4rem;
+            color: #E64833;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            color: #90AEAD;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+.hero-button {
+    text-decoration: none; /* Removes the default underline of links */
+}
+
+.hero button {
+    background-color: #244855;
+    color: #90AEAD;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    position: relative;
+}
+
+.hero button:hover {
+    background-color: #FBE9D0; /* Muted brown */
+    transform: scale(1.1);
+}
+
+  /* Mission Section */
+        .mission {
+            background-color: #90AEAD;
+            color: #244855;
+            padding: 80px 20px;
+            text-align: center;
+            background-image: url('https://www.transparenttextures.com/patterns/diamond-mesh.png'); /* Diamond mesh pattern */
+            background-color: #90AEAD;
+        }
+        .mission h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .mission .icon-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .mission .icon-card {
+            background-color: #FBE9D0;
+            width: 250px;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
+            opacity: 0; /* Initially hidden */
+            transform: translateY(20px); /* Slight downward position for the fade-in effect */
+            animation: fadeIn 1.0s forwards 1.0s; /* Delay of 1.5 seconds before animation starts */
+        }
+        .mission .icon-card:nth-child(2) {
+            animation-delay: 2.0s; /* Delay for second card */
+        }
+        .mission .icon-card:nth-child(3) {
+            animation-delay: 3.0s; /* Delay for third card */
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .mission .icon-card:hover {
+            transform: translateY(-10px); /* Move the card up */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow for pop-up effect */
+        }
+        .mission .icon-card img {
+            width: 180px;
+            height: 120px;
+            border-radius: 10px;
+        }
+        .mission .icon-card p {
+            font-size: 1.1rem;
+            color: #244855;
+            margin-top: 10px;
+        }
+
+        /* Success Stories Section */
+        .stories {
+            background-color: #FBE9D0;
+            padding: 80px 40px;
+            text-align: center;
+            background-image: url('https://www.transparenttextures.com/patterns/white-diamond.png');
+        }
+        .stories h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #244855;
+        }
+        .carousel {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px;
+            scroll-snap-type: x mandatory;
+            scroll-padding-left: 10px; /* Allow space at the beginning */
+        }
+        .carousel .story-card {
+            background: #FBE9D0;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            scroll-snap-align: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            transition: transform 0.3s;
+            opacity: 1; /* Ensure visible */
+            transform: translateY(0px); /* No initial offset */
+        }
+        .carousel .story-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        .carousel .story-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .carousel .story-card h3 {
+            color: #244855;
+            margin: 10px 0;
+        }
+        .carousel .story-card p {
+            color: #244855;
+            padding: 0 10px;
+        }
+
+        /* Remove underline on story card links */
+        .carousel .story-card a {
+            text-decoration: none;
+            color: #244855; /* Optional: Set the color of links to match the overall design */
+        }
+
+
+
+        /* Footer */
+        footer {
+            background-color: #244855;
+            color: #FBE9D0;
+            text-align: center;
+            padding: 20px;
+        }
+        footer a {
+            color: #E64833;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: #90AEAD;
+        }

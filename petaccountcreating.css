@@ -1,0 +1,152 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Garamond', serif;
+}
+
+body {
+  background: linear-gradient(to right, #FBE9D0, #244855); /* Light Beige to Dark Teal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Container for Left and Right Cards */
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 900px; /* Increased card size */
+  width: 90%;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  margin-bottom: 30px; /* Added space between card and footer */
+}
+
+/* Left Section (Steps Navigation and Logo) */
+.left-section {
+  background: linear-gradient(to bottom, #244855, #90AEAD); /* Dark Teal to Greenish Blue */
+  color: white;
+  width: 30%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logo {
+  margin-bottom: 10px; /* Reduced space between logo and steps */
+}
+
+.logo img {
+  max-width: 100px; /* Adjusted logo size */
+  border-radius: 50%; /* Optional: rounded logo */
+}
+
+.logo-text {
+  font-size: 2.0em; /* Reduced size of logo text */
+  font-weight: bold;
+  color: #FBE9D0; /* Light Beige for the logo text */
+  margin-top: 10px;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.step {
+  font-size: 1.1em;
+  opacity: 0.7;
+}
+
+.step.active {
+  opacity: 1;
+  font-weight: bold;
+  color: #FBE9D0;
+}
+
+/* Right Section (Form Content) */
+.right-section {
+  width: 70%;
+  padding: 30px;
+  background: #FBE9D0; /* Light Beige */
+  background-image: url('https://www.transparenttextures.com/patterns/white-diamond.png');
+  background-repeat: repeat; /* Make the texture repeat itself */
+  overflow-y: auto;
+}
+
+h1 {
+  font-size: 1.8em;
+  color: #244855;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 1em;
+  color: #244855;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #90AEAD;
+  border-radius: 8px;
+}
+
+button {
+  background-color: #244855;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #E64833;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+#step-1 .buttons {
+  justify-content: flex-end; /* Align next button to the right */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .left-section, .right-section {
+    width: 100%;
+  }
+
+  .left-section {
+    margin-bottom: 20px;
+  }
+}

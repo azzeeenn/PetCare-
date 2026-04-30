@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="shortcut icon" href="http://localhost/PetCareProject/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Manage Pet Adoptions</h2>
+        <form id="addPetForm">
+            <div class="mb-3">
+                <label class="form-label">Pet Name</label>
+                <input type="text" id="petName" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Breed</label>
+                <input type="text" id="petBreed" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Age</label>
+                <input type="number" id="petAge" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Gender</label>
+                <input type="text" id="petGender" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Color</label>
+                <input type="text" id="petColor" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Weight (kg)</label>
+                <input type="number" id="petWeight" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Current Location</label>
+                <input type="text" id="petLocation" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Price (₹)</label>
+                <input type="number" id="petPrice" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Main Image (For Pet Card)</label>
+                <input type="file" id="petImage" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Gallery Image 1</label>
+                <input type="file" id="petGallery1" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Gallery Image 2</label>
+                <input type="file" id="petGallery2" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Gallery Image 3</label>
+                <input type="file" id="petGallery3" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Pet</button>
+        </form>
+        
+        <h3 class="mt-5">Pet List</h3>
+        <div class="row" id="petList">
+            <!-- Pets will be loaded here dynamically -->
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            function loadPets() {
+                $.get("get_pets.php", function (data) {
+                    let pets = JSON.parse(data);
+                    let petList = "";
+                    pets.forEach(pet => {
+                        petList += `<div class="col-md-4">
+                            <div class="pet-card" id="pet-${pet.id}" onclick="window.location.href='pet_details.php?id=${pet.id}'">
+                                <h3>${pet.name}</h3>
+                                <p>Breed: ${pet.breed}</p>
+                                <img src="uploads/${pet.image}" alt="${pet.name}">
+                            </div>
+                        </div>`;
+                    });
+                    $("#petList").html(petList);
+                });
+            }
+
+            $("#addPetForm").submit(function (e) {
+                e.preventDefault();
+                let formData = new FormData();
+                formData.append("name", $("#petName").val());
+                formData.append("breed", $("#petBreed").val());
+                formData.append("age", $("#petAge").val());
+                formData.append("gender", $("#petGender").val());
+                formData.append("color", $("#petColor").val());
+                formData.append("weight", $("#petWeight").val());
+                formData.append("location", $("#petLocation").val());
+                formData.append("price", $("#petPrice").val());
+                formData.append("image", $("#petImage")[0].files[0]);
+                formData.append("gallery1", $("#petGallery1")[0].files[0]);
+                formData.append("gallery2", $("#petGallery2")[0].files[0]);
+                formData.append("gallery3", $("#petGallery3")[0].files[0]);
+                
+                $.ajax({
+                    url: "add_pet.php",
+                    type: "POST",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function () {
+                        alert("Pet added successfully!");
+                        loadPets();
+                    }
+                });
+            });
+
+            loadPets();
+        });
+    </script>
+</body>
+</html>

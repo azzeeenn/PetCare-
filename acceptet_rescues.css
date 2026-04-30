@@ -1,0 +1,87 @@
+/* General Styles */
+body {
+    background-color: #FBE9D0;
+    font-family: Arial, sans-serif;
+    color: #244855;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #244855;
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Navigation */
+nav {
+    margin: 15px;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    background-color: #E64833;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+nav a:hover {
+    background-color: #c0392b;
+}
+
+/* Table Styling */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #90AEAD;
+    color: #244855;
+    border-radius: 10px;
+    overflow: hidden;
+}
+th, td {
+    border: 1px solid #244855;
+    padding: 10px;
+    text-align: center;
+}
+th {
+    background-color: #244855;
+    color: white;
+    font-weight: bold;
+}
+
+/* Form Elements */
+select, button {
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+}
+
+/* Assign Button */
+.assign-btn {
+    background-color: #E64833;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.assign-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Mark as Rescued Button */
+.rescue-complete-btn {
+    background-color: #874F41;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.rescue-complete-btn:hover {
+    background-color: #6b3e33;
+}

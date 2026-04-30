@@ -1,0 +1,55 @@
+/* General Styling */
+body {
+    font-family: "Garamond", serif;
+    text-align: center;
+    background: linear-gradient(to right, #90AEAD, #FBE9D0);
+    color: #244855;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    padding: 20px;
+    background: #244855;
+    color: #FBE9D0;
+    font-size: 1.8em;
+}
+
+/* Policy Content */
+.policy-content {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    color: #244855;
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    font-size: 1.2em;
+}
+
+/* Headings */
+.policy-content h2 {
+    color: #244855;
+    border-bottom: 2px solid #90AEAD;
+    padding-bottom: 5px;
+}
+
+/* Footer */
+footer {
+    margin: 30px;
+}
+
+footer a {
+    background: #244855;
+    color: #FBE9D0;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+
+footer a:hover {
+    background: #E64833;
+}

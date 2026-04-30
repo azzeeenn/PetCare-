@@ -1,0 +1,133 @@
+body {
+    font-family: 'Garamond', serif;
+    background: linear-gradient(to right, #FBE9D0, #90AEAD);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+
+select {
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 5px;
+    background-color: #FBE9D0;
+    border: none;
+    cursor: pointer;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(7, 120px);
+    gap: 20px;
+    justify-content: center;
+    margin: 20px;
+    margin-top: 40px;
+}
+
+.day {
+    width: 100px;
+    height: 100px;
+    background-color: #FBE9D0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.day:hover {
+    transform: scale(1.1);
+}
+
+.progress-ring {
+    transform: rotate(-90deg);
+}
+
+.progress-ring circle {
+    fill: none;
+    stroke-width: 10;
+}
+
+.progress-ring circle.bg {
+    stroke: #E64833;
+}
+
+.progress-ring circle.fg {
+    stroke: #244855;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.6s ease;
+}
+
+.day-text {
+    position: absolute;
+    font-size: 16px;
+    color: #244855;
+    z-index: 10;
+}
+
+.day-text span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.day-text small {
+    font-size: 12px;
+    color: #E64833;
+}
+
+h1 {
+    font-size: 36px;
+    color: #244855;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(7, 80px);
+        gap: 15px;
+    }
+
+    .day {
+        width: 80px;
+        height: 80px;
+    }
+
+    .day-text span {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        grid-template-columns: repeat(7, 60px);
+        gap: 10px;
+    }
+
+    .day {
+        width: 60px;
+        height: 60px;
+    }
+
+    .day-text span {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}

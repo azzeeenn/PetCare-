@@ -1,0 +1,193 @@
+body {
+    font-family: 'Garamond', serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #FBE9D0, #90AEAD);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 2s ease-out;
+}
+
+.section-title {
+    margin-top: 30px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #244855;
+    text-align: center;
+    letter-spacing: 1px;
+    animation: fadeIn 1.5s ease-out;
+    opacity: 0;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+.timeline {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    flex-wrap: nowrap;
+    margin-top: 40px;
+    border: 4px solid #244855;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #244855;
+    z-index: 0;
+}
+
+.milestone {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+    margin: 0 15px;
+    transition: transform 0.3s ease;
+    width: 18%;
+}
+
+.milestone:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.milestone .icon-container {
+    width: 90px;
+    height: 90px;
+    background: #244855;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: #FBE9D0;
+    margin-bottom: 10px;
+    transition: background 0.3s ease;
+}
+
+.milestone:nth-child(1):hover .icon-container {
+    background: #90AEAD;
+}
+
+.milestone:nth-child(2):hover .icon-container {
+    background: #90AEAD;
+}
+
+.milestone:nth-child(3):hover .icon-container {
+    background: linear-gradient(to right, #90AEAD, #FBE9D0);
+}
+
+.milestone:nth-child(4):hover .icon-container,
+.milestone:nth-child(5):hover .icon-container {
+    background: #FBE9D0;
+}
+
+.milestone .details {
+    font-size: 20px;
+    font-weight: bold;
+    color: #244855;
+    margin-top: 10px;
+}
+
+.milestone .description {
+    font-size: 16px;
+    color: #874F41;
+    margin-top: 5px;
+    opacity: 0.8;
+}
+
+.checkbox {
+    width: 30px;
+    height: 30px;
+    appearance: none;
+    border: 2px solid #244855;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.checkbox:checked {
+    background-color: #E64833;
+    transform: scale(1.2);
+}
+
+.reward {
+    display: none;
+    margin-top: 30px;
+    font-size: 20px;
+    color: #244855;
+    background: #FBE9D0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    animation: fadeIn 1s ease-in-out;
+    text-align: center;
+    transform: translateY(50px);
+}
+
+.reward.show {
+    display: block;
+    animation: fadeIn 1s ease-in-out, slideUp 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline {
+        flex-direction: column;
+    }
+
+    .milestone {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .milestone .icon-container {
+        font-size: 30px;
+        width: 70px;
+        height: 70px;
+    }
+
+    .reward {
+        margin-top: 20px;
+        font-size: 18px;
+    }
+}

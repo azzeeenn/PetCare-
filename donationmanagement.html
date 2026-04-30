@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="http://localhost/PetCareProject/favicon.ico" type="image/x-icon">
+
+  <title>Donation Management</title>
+<link rel="stylesheet" href="../css/adminsidestyles.css">
+
+</head>
+<body>
+
+  <header>
+    <h1>Donation Management</h1>
+  </header>
+
+<nav class="navigation">
+<a href="../adminside/superadmin.html">Dashboard</a>
+  <a href="../adminside/usermanagement.html">User Management</a>
+  <a href="../adminside/sheltermanagement.html">Shelter Management</a>
+  <a href="../adminside/donationmanagement.html" class="active">Donations</a>
+  <a href="../adminside/petrescuemanagement.html">Pet Rescue Management</a>
+  <a href="../adminside/petrescuemanagement.html" >Pet Rescue Form Details Management</a>
+  <a href="../adminside/petrescuemanagement.php">Pet Rescue Form Details Management</a>
+  <a href="../adminside/admin_pets.php" >Pet Adoption Management</a>
+  <a href="../adminside/adminadoptionprocessing.html" >Pet Adoption Requests Management</a>
+  <a href="../adminside/admin_volunteers.html" >Volunteer Management</a>
+
+
+
+
+</nav>
+
+  <div class="dashboard">
+    <div class="info-card">
+      <h3>Total Donations</h3>
+      <p id="totalDonations">0</p>
+    </div>
+    <div class="info-card">
+      <h3>Pending Donations</h3>
+      <p id="pendingDonations">0</p>
+    </div>
+  </div>
+
+  <div class="donation-form-container">
+    <button class="cta-btn" id="addDonationBtn">Add Donation</button>
+  </div>
+
+  <h2><center>Donation List</center></h2>
+  <table id="donationTable">
+    <thead>
+      <tr>
+        <th>Donor Name</th>
+        <th>Amount</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Donations will be added here dynamically -->
+    </tbody>
+  </table>
+
+  <!-- Modal to Add Donation -->
+  <div id="donationModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Create New Donation</h3>
+      <form id="createDonationForm">
+        <input type="text" id="donorName" placeholder="Donor Name" required>
+        <input type="number" id="donationAmount" placeholder="Amount" required min="1">
+        <select id="donationStatus" required>
+          <option value="Pending">Pending</option>
+          <option value="Completed">Completed</option>
+        </select>
+        <button type="submit" class="cta-btn">Add Donation</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/donationmanagement.js"></script>
+</body>
+</html>

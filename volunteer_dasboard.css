@@ -1,0 +1,91 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #90AEAD, #FBE9D0);/* Light Beige */
+    color: #244855; /* Dark Teal */
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Welcome Header */
+h2 {
+    color: #244855;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #874F41; /* Muted Brown */
+}
+
+/* Task Filters (Buttons) */
+div {
+    margin: 20px 0;
+}
+
+button {
+    background-color: #244855; /* Dark Teal */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #E64833; /* Bright Orange-Red */
+}
+
+/* Task List (Table) */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    border: 2px solid #90AEAD; /* Soft Greenish-Blue */
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #244855; /* Dark Teal */
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    color: #244855;
+}
+
+/* Alternate Row Colors */
+tbody tr {
+    background-color: #FBE9D0; /* Light Beige */
+}
+
+
+/* Status Colors */
+td:nth-child(5) { /* Status Column */
+    font-weight: bold;
+}
+
+td:nth-child(5):contains("Pending") {
+    color: #E64833; /* Bright Orange-Red */
+}
+
+td:nth-child(5):contains("In Progress") {
+    color: #874F41; /* Muted Brown */
+}
+
+td:nth-child(5):contains("Completed") {
+    color: #244855; /* Dark Teal */
+}

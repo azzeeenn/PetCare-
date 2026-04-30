@@ -1,0 +1,196 @@
+/* Global Styles */
+body {
+    font-family: 'Garamond', serif;
+    background: linear-gradient(45deg, #FBE9D0, #90AEAD);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #244855;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    background-color: #244855;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-size: 1.5em;
+    border-radius: 10px;
+    margin: 20px 10px;
+    transition: transform 0.5s ease;
+}
+
+header:hover {
+    transform: scale(1.1);
+}
+
+/* Navigation */
+nav.navigation {
+    display: flex;
+    justify-content: center;
+    background-color: #244855;
+    padding: 15px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1.1em;
+}
+
+nav a:hover, nav a.active {
+    background-color: #E64833;
+    transform: scale(1.1);
+}
+
+/* Header Styling */
+h2 {
+    text-align: center;
+    color: #244855;
+    font-weight: bold;
+}
+
+/* Buttons - Slimmer and Unified Color */
+.btn {
+    padding: 8px 12px; /* Reduced padding */
+    border-radius: 10px; /* Less rounded */
+    font-size: 1em;
+    background-color: #244855; /* Unified color */
+    color: white;
+    border: none;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #90AEAD;
+    transform: scale(1.05);
+}
+
+/* Form Styling */
+#petForm {
+    background: #FBE9D0;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 60%;
+    display: none; /* Hidden by default */
+}
+
+#petForm h3 {
+    color: #244855;
+    text-align: center;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #244855;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+form label {
+    font-weight: bold;
+    color: #244855;
+}
+
+/* Image Preview */
+#current-image, #current-gallery-img1, #current-gallery-img2, #current-gallery-img3 {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-top: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styling - Thin Borders & Larger Headers */
+table {
+    width: 80%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background-color: #FBE9D0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table th {
+    background-color: #244855 !important;
+    color: white !important;
+    font-size: 1.4em; /* Increased header font size */
+    padding: 15px 20px;
+    text-align: center;
+    border: 1px solid #244855;
+}
+
+table td {
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 1.2em;
+    border: 1px solid #244855; /* Thin dark teal border */
+}
+
+table tr:nth-child(even) {
+    background-color: #FBE9D0;
+}
+
+table tr:hover {
+    background-color: #E64833;
+    color: white;
+}
+
+/* Dashboard Cards */
+.dashboard {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 30px;
+}
+
+.info-card {
+    background: linear-gradient(135deg, #E64833, #244855);
+    color: #FBE9D0;
+    padding: 20px;
+    border-radius: 15px;
+    width: 250px;
+    text-align: center;
+    font-size: 1.5em;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.info-card:hover {
+    transform: scale(1.1);
+    background-color: #874F41;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+/* Slide animation */
+.slide-down {
+    animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+    0% { transform: translateY(-50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}

@@ -1,0 +1,219 @@
+/* Global Styles */
+body {
+    font-family: 'Garamond', serif;
+    background: linear-gradient(45deg, #FBE9D0, #90AEAD);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #244855;
+    overflow-x: hidden;
+}
+header {
+    background-color: #244855;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-size: 1.5em;
+    border-radius: 10px;
+    margin: 20px 10px;
+    transition: transform 0.5s ease;
+}
+
+header:hover {
+    transform: scale(1.1);
+}
+
+/* Navigation */
+nav.navigation {
+    display: flex;
+    justify-content: center;
+    background-color: #244855;
+    padding: 15px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1.1em;
+}
+
+nav a:hover, nav a.active {
+    background-color: #E64833;
+    transform: scale(1.1);
+}
+/* Header Styling */
+h2 {
+    text-align: center;
+    color: #244855;
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Table Styling */
+table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background-color: #FBE9D0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+table th {
+    background-color: #244855;
+    color: white;
+    font-size: 1.2em;
+    padding: 15px;
+    text-align: center;
+}
+
+table td {
+    padding: 12px;
+    text-align: center;
+    font-size: 1.1em;
+    border: 1px solid #244855;
+}
+
+table tr:nth-child(even) {
+    background-color: #FBE9D0;
+}
+
+table tr:hover {
+    background-color: #E64833;
+    color: white;
+}
+
+/* Action Buttons */
+button {
+    background-color: #E64833;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button.view-details {
+    background-color: #244855;
+}
+
+button.view-details:hover {
+    background-color: #90AEAD;
+}
+
+button.approve {
+    background-color: #28a745;
+}
+
+button.approve:hover {
+    background-color: #218838;
+}
+
+button.reject {
+    background-color: #E64833;
+}
+
+button.reject:hover {
+    background-color: #C53030;
+}
+
+/* Modal Styling */
+
+.modal-content h3 {
+    color: #244855;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.modal-content p {
+    font-size: 1.1em;
+    color: #244855;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #244855;
+    border-radius: 5px;
+    background-color: #FBE9D0;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center; /* ✅ Centers modal */
+    overflow-y: auto; /* ✅ Allows scrolling */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #FBE9D0;
+    padding: 20px;
+    border-radius: 15px;
+    width: 50%;
+    max-height: 80vh; /* ✅ Prevents modal from getting too tall */
+    overflow-y: auto; /* ✅ Enables scrolling inside modal */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Close Button */
+.close {
+    color: #E64833;
+    font-size: 24px;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #C53030;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 80%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+}

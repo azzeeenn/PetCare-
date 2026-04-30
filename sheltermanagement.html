@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shelter Management</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="../css/adminsidestyles.css">
+  <link rel="shortcut icon" href="http://localhost/PetCareProject/favicon.ico" type="image/x-icon">
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Shelter Management</h1>
+  </header>
+  <nav class="navigation">
+    <a href="../adminside/rescueform.php">Pet Rescue Form Details Management</a>
+    <a href="../adminside/admin_pets.php" >Pet Adoption Management</a>
+    <a href="../adminside/adminadoptionprocessing.html" >Pet Adoption Requests Management</a>
+    <a href="../adminside/admin_volunteers.html" >Volunteer Management</a>
+    <a href="../adminside/admin_assign_task.html" >Volunteer task Management</a>
+    <a href="../adminside/sheltermanagement.html" class="active">Shelter Management</a>
+</nav>
+  
+  <section class="shelter-management">
+    <div class="dashboard">
+      <div class="info-card">
+        <h3>Total Shelters</h3>
+        <p id="totalShelters">0</p>
+      </div>
+      <div class="info-card">
+        <h3>Assigned Pets</h3>
+        <p id="assignedPets">0</p>
+      </div>
+    </div>
+
+    <center><div class="shelter-list-container">
+      <button class="cta-btn" id="addShelterBtn">Add Shelter</button>
+    </div>
+
+    <h2>Shelter List</h2></center>
+    <table id="shelterTable">
+      <thead>
+        <tr>
+          <th>Shelter Name</th>
+          <th>Location</th>
+          <th>Capacity</th>
+          <th>Assigned Pet</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Shelter data will load here -->
+      </tbody>
+    </table>
+
+    <!-- Modal to create shelter -->
+    <div id="shelterModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Create New Shelter</h3>
+        <form id="createShelterForm">
+          <label for="shelterName">Shelter Name:</label>
+          <input type="text" id="shelterName" required>
+          <label for="shelterLocation">Location:</label>
+          <input type="text" id="shelterLocation" required>
+          <label for="shelterCapacity">Capacity:</label>
+          <input type="number" id="shelterCapacity" required min="1">
+          <label for="assignedPet">Assign Pet:</label>
+          <select id="assignedPet">
+            <option value="">Select a pet</option>
+            <option value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+          </select>
+          <button type="submit" class="cta-btn">Create Shelter</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    $(document).ready(function () {
+      const shelters = [];
+      const petsAssigned = new Set(); // To track unique pet assignments
+
+      // Update Dashboard
+      function updateDashboard() {
+        $("#totalShelters").text(shelters.length);
+        $("#assignedPets").text(petsAssigned.size);
+      }
+
+      // Show Modal
+      $("#addShelterBtn").on("click", function () {
+        $("#shelterModal").show();
+      });
+
+      // Close Modal
+      $(".close").on("click", function () {
+        $("#shelterModal").hide();
+      });
+
+      // Create Shelter Form
+      $("#createShelterForm").on("submit", function (e) {
+        e.preventDefault();
+        const shelterName = $("#shelterName").val();
+        const shelterLocation = $("#shelterLocation").val();
+        const shelterCapacity = $("#shelterCapacity").val();
+        const assignedPet = $("#assignedPet").val();
+
+        if (assignedPet && !petsAssigned.has(assignedPet)) {
+          petsAssigned.add(assignedPet);
+        }
+
+        shelters.push({ shelterName, shelterLocation, shelterCapacity, assignedPet });
+
+        $("#shelterTable tbody").append(`
+          <tr>
+            <td>${shelterName}</td>
+            <td>${shelterLocation}</td>
+            <td>${shelterCapacity}</td>
+            <td>${assignedPet}</td>
+            <td><button class="cta-btn delete-btn">Delete</button></td>
+          </tr>
+        `);
+
+        $("#shelterModal").hide();
+        $("#createShelterForm")[0].reset();
+        updateDashboard();
+      });
+
+      // Delete Shelter
+      $("#shelterTable").on("click", ".delete-btn", function () {
+        const rowIndex = $(this).closest("tr").index();
+        const deletedShelter = shelters.splice(rowIndex, 1)[0];
+        petsAssigned.delete(deletedShelter.assignedPet);
+        $(this).closest("tr").remove();
+        updateDashboard();
+      });
+    });
+  </script>
+</body>
+</html>

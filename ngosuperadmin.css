@@ -1,0 +1,91 @@
+/* General Styles */
+body {
+  font-family: 'Garamond', serif;
+  background-color: #90AEAD;
+  color: #244855;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  background-color: #244855;
+  min-width: 250px;
+  transition: all 0.3s;
+}
+.sidebar h2 {
+  color: #FBE9D0;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+.sidebar a {
+  color: #FBE9D0;
+  font-size: 1.1rem;
+  text-decoration: none;
+  display: block;
+  padding: 10px 15px;
+  transition: all 0.3s;
+}
+.sidebar a:hover {
+  color: #E64833;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+/* Content Styles */
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #FBE9D0;
+  border-radius: 15px;
+}
+
+/* Card Styles */
+.card {
+  background-color: #874F41;
+  color: #FBE9D0;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styles */
+.btn-custom {
+  background-color: #E64833;
+  color: #FBE9D0;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  transition: all 0.3s;
+}
+.btn-custom:hover {
+  background-color: #FBE9D0;
+  color: #E64833;
+  transform: scale(1.1);
+}
+
+/* Section Background */
+.section-bg {
+  background-color: #90AEAD;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,254 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Garamond', sans-serif;
+    background: linear-gradient(135deg, #FBE9D0, #90AEAD); /* Gradient background */
+    color: #244855;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    transition: background 0.3s ease;
+}
+
+/* Button to open the sidebar */
+.menu-btn {
+    font-family: 'Garamond', serif;
+    font-size: 28px; /* Reduced size of the Menu button */
+    cursor: pointer;
+    color: #FBE9D0;
+    background-color: #244855; /* Dark Teal */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    transition: opacity 0.3s ease;
+}
+
+.menu-btn:hover {
+    background-color: #E64833; /* Bright Orange-Red */
+}
+
+/* Sidebar Styles */
+.sidebar {
+    height: 100%;
+    width: 0; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #244855; /* Dark Teal */
+    color: #FBE9D0;
+    padding-top: 90px; /* Increased padding for more space above the menu */
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+    transition: width 0.5s ease; /* Added a 0.5s transition */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+.sidebar a {
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 16px; /* Reduced font size */
+    color: #FBE9D0;
+    display: block;
+    transition: 0.3s;
+    border-bottom: 1px solid #E64833;
+    border-radius: 4px;
+    margin: 5px 0;
+}
+
+.sidebar a:hover {
+    background-color: #E64833; /* Bright Orange-Red */
+    color: white;
+    transform: scale(1.05);
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 10px; /* Reduced top margin */
+    right: 15px;
+    font-size: 24px; /* Smaller size for the X button */
+    color: #FBE9D0;
+    cursor: pointer;
+}
+
+/* Main Content */
+.content {
+    margin: 0 auto;
+    padding: 40px;
+    width: 80%; /* Set width to make it centered */
+    transition: margin-left 0.5s ease, width 0.5s ease; /* Matching transition duration */
+}
+
+/* When sidebar is open, hide the menu button */
+.menu-btn.hidden {
+    opacity: 0;
+    pointer-events: none; /* Prevent clicking the hidden button */
+}
+
+/* When sidebar is open, shift the content to the right */
+.sidebar-open .content {
+    margin-left: 220px; /* Shift content */
+    width: calc(100% - 220px); /* Adjust width when sidebar is open */
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero img {
+    height: 100px; /* Adjusted size */
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 2.5rem; /* Reduced font size */
+    font-family: 'Garamond', sans-serif;
+    color: #244855;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    animation: fadeIn 1s ease-out;
+}
+
+.hero p {
+    font-size: 1.1rem; /* Reduced font size */
+    font-weight: 300;
+    color: #244855;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Card Section */
+.section {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.card {
+    background: linear-gradient(145deg, #90AEAD, #FBE9D0); /* Gradient background */
+    border-radius: 10px;
+    width: 320px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    color: #244855;
+    margin-bottom: 30px;
+    animation: bounceIn 1s ease-out;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    font-size: 1.8rem; /* Reduced font size */
+    margin-bottom: 15px;
+    font-family: 'Garamond', sans-serif;
+}
+
+.card p {
+    font-size: 1.1rem; /* Reduced font size */
+    margin-bottom: 15px;
+}
+
+.card button {
+    background-color: #244855;
+    color: #FBE9D0;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem; /* Adjusted font size */
+    transition: background-color 0.3s ease;
+    font-family: 'Garamond', sans-serif;
+}
+
+.card button:hover {
+    background-color: #E64833;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #244855;
+    color: #FBE9D0;
+    text-align: center;
+    padding: 15px;
+    margin-top: 60px;
+}
+
+footer img {
+    height: 50px;
+    margin-top: 10px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem; /* Reduced font size */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Reduced font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .sidebar a {
+        font-size: 14px; /* Smaller font size */
+    }
+
+    .hero h1 {
+        font-size: 1.8rem; /* Smaller font size */
+    }
+
+    .card h2 {
+        font-size: 1.4rem; /* Smaller font size */
+    }
+
+    .card p {
+        font-size: 0.85rem; /* Smaller font size */
+    }
+
+    .card button {
+        font-size: 0.9rem; /* Smaller font size */
+    }
+}

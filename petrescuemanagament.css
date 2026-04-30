@@ -1,0 +1,261 @@
+/* Global Styles */
+body {
+  font-family: 'Garamond', serif;
+  background: linear-gradient(45deg, #FBE9D0, #90AEAD);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #244855;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: #244855;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-size: 1.5em;
+  border-radius: 10px;
+  margin: 20px 10px;
+  transition: transform 0.5s ease;
+}
+
+header:hover {
+  transform: scale(1.1);
+}
+
+nav.navigation {
+  display: flex;
+  justify-content: center;
+  background-color: #244855;
+  padding: 15px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 20px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 1.1em;
+}
+
+nav a:hover, nav a.active {
+  background-color: #E64833;
+  transform: scale(1.1);
+}
+
+/* Form Section */
+.form-container {
+  width: 100%;
+  text-align: center;
+  margin: 50px 0;
+  display: flex;
+  flex-direction: column; /* Stacks elements vertically */
+  align-items: center; /* Centers form content */
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between; /* Space out fields */
+  gap: 15px; /* Adds spacing between fields */
+  width: 100%;
+  max-width: 800px; /* Limits width of the row */
+}
+
+.form-container input,
+.form-container select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #244855;
+  font-size: 1.1em;
+  width: 30%; /* Ensures all three fields (Pet Name, Breed, Condition) are the same size */
+}
+
+.form-container textarea {
+  width: 60%; /* Makes the Pet History input a bit smaller */
+  max-width: 600px; /* Ensures the textarea isn't too wide */
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #244855;
+  font-size: 1.1em;
+  resize: vertical;
+}
+
+/* Button */
+.cta-btn {
+  background-color: #E64833;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: transform 0.3s, background-color 0.3s;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; /* Adds space between the form and the button */
+}
+
+.cta-btn:hover {
+  background-color: #244855;
+  transform: translateY(-2px);
+}
+
+/* Table */
+/* Responsive Table */
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  margin: 20px auto;
+}
+
+table {
+  width: 50%; /* Ensure the table takes full width */
+  max-width: 50%;
+  padding-top: 10px;;
+  border-collapse: collapse;
+  background-color: #FBE9D0;
+  border-radius: 10px;
+  overflow: hidden;
+  table-layout: auto; /* Adjust column width dynamically */
+}
+
+table th, table td {
+  padding: 12px 15px;
+  text-align: center;
+  font-size: 1em;
+  border: 1px solid #244855;
+  word-wrap: break-word; /* Ensures text wraps instead of overflowing */
+  white-space: normal; /* Allow text to break into multiple lines */
+}
+
+table th {
+  background-color: #244855;
+  color: white;
+}
+
+table tr:nth-child(even) {
+  background-color: #FBE9D0;
+}
+
+table tr:hover {
+  background-color: #E64833;
+  color: white;
+}
+
+/* Make table scrollable on small screens */
+@media (max-width: 768px) {
+  .table-container {
+    overflow-x: auto;
+    display: block;
+  }
+
+  table {
+    font-size: 0.9em;
+    min-width: 600px; /* Prevents table from shrinking too much */
+  }
+
+  table th, table td {
+    padding: 10px;
+  }
+}
+
+
+.dashboard {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  margin-top: 40px;
+  gap: 30px;
+  opacity: 0;
+  animation: slideInDashboard 1s 1s forwards;
+}
+
+@keyframes slideInDashboard {
+  0% { opacity: 0; transform: translateX(-100%); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.info-card {
+  background: linear-gradient(135deg, #E64833, #244855);
+  color: #FBE9D0;
+  padding: 20px;
+  border-radius: 15px;
+  width: 250px;
+  text-align: center;
+  font-size: 1.5em;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.info-card:hover {
+  transform: scale(1.1);
+  background-color: #874F41;
+}
+.pet-img {
+  width: 100px;  /* Adjust width */
+  height: 100px; /* Adjust height */
+  object-fit: cover; /* Ensures the image fills the area without distortion */
+  border-radius: 8px; /* Optional: Rounded corners */
+  border: 1px solid #ccc; /* Optional: Light border */
+}
+
+/* 🎨 Style for Select Team Dropdown */
+.assign-team {
+  padding: 8px;
+  width: 150px;
+  border-radius: 5px;
+  border: 2px solid #008080; /* Dark teal border */
+  background-color: white;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.assign-team:hover {
+  border-color: #244855; /* Slightly darker teal */
+}
+
+/* 🔘 Style for Buttons */
+.styled-button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #244855; /* Dark teal */
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.styled-button:hover {
+  background-color: #005959; /* Slightly darker teal */
+  transform: scale(1.05);
+}
+
+.styled-button:active {
+  transform: scale(1);
+}
+
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Slide animation */
+.slide-down {
+  animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+  0% { transform: translateY(-50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}

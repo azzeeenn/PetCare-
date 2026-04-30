@@ -1,0 +1,141 @@
+body {
+    font-family: 'Garamond', serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #FBE9D0, #90AEAD);
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    transition: transform 0.5s ease;
+}
+
+.navbar img {
+    width: 100px;
+    transition: transform 0.5s ease;
+}
+
+.navbar .btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 30px;
+    background-color: transparent;
+    border: none;
+    color: #244855;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.navbar .btn:hover {
+    color: #E64833;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #244855;
+    overflow-x: hidden;
+    transition: width 0.5s ease;
+    padding-top: 60px;
+}
+
+.sidebar a {
+    padding: 10px 8px 10px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #FBE9D0;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #E64833;
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 40px;
+    color: #FBE9D0;
+    cursor: pointer;
+}
+
+.headline {
+    color: #244855;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 130px;
+}
+
+.caption {
+    font-size: 1.2em;
+    color: #244855;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.pet-card {
+    background: linear-gradient(to right, #90AEAD, #FBE9D0);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    margin-bottom: 30px;
+}
+
+.pet-card:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, #FBE9D0, #90AEAD);
+}
+
+.pet-card h3 {
+    font-size: 1.5rem;
+    color: #244855;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.pet-card p {
+    font-size: 1rem;
+    color: #244855;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.pet-card img {
+    max-width: 75%;
+    border-radius: 10px;
+}
+
+.container {
+    margin-bottom: 50px;
+}
+
+footer {
+    background-color: #244855;
+    color: #FBE9D0;
+    text-align: center;
+    padding: 20px;
+}

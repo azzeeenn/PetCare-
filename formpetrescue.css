@@ -1,0 +1,186 @@
+/* Global Styles */
+body {
+  font-family: 'Garamond', serif;
+  background: linear-gradient(45deg, #FBE9D0, #90AEAD);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #244855;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: #244855;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-size: 1.5em;
+  border-radius: 10px;
+  margin: 20px 10px;
+  transition: transform 0.5s ease;
+}
+
+header:hover {
+  transform: scale(1.1);
+}
+
+nav.navigation {
+  display: flex;
+  justify-content: center;
+  background-color: #244855;
+  padding: 15px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 20px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 1.1em;
+}
+
+nav a:hover, nav a.active {
+  background-color: #E64833;
+  transform: scale(1.1);
+}
+
+/* Form Section */
+.form-container {
+  width: 100%;
+  text-align: center;
+  margin: 50px 0;
+  display: flex;
+  flex-direction: column; /* Stacks elements vertically */
+  align-items: center; /* Centers form content */
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between; /* Space out fields */
+  gap: 15px; /* Adds spacing between fields */
+  width: 100%;
+  max-width: 800px; /* Limits width of the row */
+}
+
+.form-container input,
+.form-container select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #244855;
+  font-size: 1.1em;
+  width: 30%; /* Ensures all three fields (Pet Name, Breed, Condition) are the same size */
+}
+
+.form-container textarea {
+  width: 60%; /* Makes the Pet History input a bit smaller */
+  max-width: 600px; /* Ensures the textarea isn't too wide */
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #244855;
+  font-size: 1.1em;
+  resize: vertical;
+}
+
+/* Button */
+.cta-btn {
+  background-color: #E64833;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: transform 0.3s, background-color 0.3s;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; /* Adds space between the form and the button */
+}
+
+.cta-btn:hover {
+  background-color: #244855;
+  transform: translateY(-2px);
+}
+
+/* Table */
+table {
+  width: 80%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  background-color: #FBE9D0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+table th, table td {
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 1.2em;
+  border: 1px solid #244855;
+}
+
+table th {
+  background-color: #244855;
+  color: white;
+}
+
+table tr:nth-child(even) {
+  background-color: #FBE9D0;
+}
+
+table tr:hover {
+  background-color: #E64833;
+  color: white;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  margin-top: 40px;
+  gap: 30px;
+  opacity: 0;
+  animation: slideInDashboard 1s 1s forwards;
+}
+
+@keyframes slideInDashboard {
+  0% { opacity: 0; transform: translateX(-100%); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.info-card {
+  background: linear-gradient(135deg, #E64833, #244855);
+  color: #FBE9D0;
+  padding: 20px;
+  border-radius: 15px;
+  width: 250px;
+  text-align: center;
+  font-size: 1.5em;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.info-card:hover {
+  transform: scale(1.1);
+  background-color: #874F41;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Slide animation */
+.slide-down {
+  animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+  0% { transform: translateY(-50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Adoption Requests</title>
+    <link rel="stylesheet" href="../css/adminadoptionprocessing.css">
+    <link rel="shortcut icon" href="http://localhost/PetCareProject/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+
+    <header>
+        <h1>Adoption Requests</h1>
+    </header>
+    
+    <!-- ✅ Navigation -->
+    <nav class="navigation">
+        <a href="../adminside/rescueform.php">Pet Rescue Form Details Management</a>
+        <a href="../adminside/admin_pets.php" >Pet Adoption Management</a>
+        <a href="../adminside/adminadoptionprocessing.html" class="active">Pet Adoption Requests Management</a>
+        <a href="../adminside/admin_volunteers.html" >Volunteer Management</a>
+        <a href="../adminside/admin_assign_task.html" >Volunteer task Management</a>
+    </nav>
+
+   
+
+    <table>
+        <thead>
+            <tr>
+                <th>Pet Name</th>
+                <th>Adopter Name</th>
+                <th>Interview Slot</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="requestsTable">
+            <!-- Requests will be loaded dynamically -->
+        </tbody>
+    </table>
+
+    <!-- Modal for Viewing Full Details -->
+<!-- Modal for Viewing Full Details -->
+<!-- Modal for Viewing Full Details -->
+<div id="detailsModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Adoption Request Details</h3>
+        <p><strong>Pet Name:</strong> <span id="modal-pet-name"></span></p>
+        <p><strong>Adopter Name:</strong> <span id="modal-adopter-name"></span></p>
+        <p><strong>Email:</strong> <span id="modal-email"></span></p>
+        <p><strong>Phone:</strong> <span id="modal-phone"></span></p>
+        <p><strong>Address:</strong> <span id="modal-address"></span></p>
+        <p><strong>Reason for Adoption:</strong> <span id="modal-reason"></span></p>
+        <p><strong>Pet Experience:</strong> <span id="modal-experience"></span></p>
+        <p><strong>Alone Time:</strong> <span id="modal-alone-time"></span></p>
+        <p><strong>Commitment:</strong> <span id="modal-commitment"></span></p>
+        <p><strong>Interview Slot:</strong> <span id="modal-interview-slot"></span></p>
+
+        <label for="admin-notes">Admin Notes:</label>
+        <textarea id="admin-notes" rows="3"></textarea>
+
+        <button class="approve" onclick="approveForInterview()">Approve for Interview 📅</button>
+        <button class="approve" onclick="finalApprove()">Final Approve ✅</button>
+        <button class="reject" onclick="rejectRequest()">Reject ❌</button>
+    </div>
+</div>
+
+
+
+
+    <script src="../js/adminadoptionprocessing.js"></script>
+
+</body>
+</html>

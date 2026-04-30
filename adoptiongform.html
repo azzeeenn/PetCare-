@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adopt a Pet</title>
+    <link rel="stylesheet" href="../css/adoptingform.css">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>Adopt a Pet - Give Them a Loving Home!</h1>
+    </div>
+
+    <!-- Adoption Form -->
+    <div class="container">
+        <div class="form-section">
+            <h2>Adopt a Pet</h2>
+            <form id="adoptionForm" method="POST" action="../php/submit_adoption_request.php">
+                <input type="hidden" id="pet-id" name="pet_id">
+            
+                <!-- Pet Info -->
+                <div class="form-group">
+                    <label for="pet-name">Pet Name</label>
+                    <input type="text" class="form-control" id="pet-name" name="pet_name" readonly>
+                </div>
+            
+                <!-- Personal Information -->
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Home Address</label>
+                    <input type="text" class="form-control" id="address" name="address" required>
+                </div>
+            
+                <!-- Lifestyle & Pet Readiness -->
+                <div class="form-group">
+                    <label for="reason">Why do you want to adopt this pet?</label>
+                    <textarea class="form-control" id="reason" name="reason" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="pet-experience">Have you had pets before? If yes, what kind?</label>
+                    <textarea class="form-control" id="pet-experience" name="pet_experience" rows="2" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="alone-time">How many hours will the pet be alone daily?</label>
+                    <select class="form-control" id="alone-time" name="alone_time" required>
+                        <option value="less than 4">Less than 4 hours</option>
+                        <option value="4-8">4-8 hours</option>
+                        <option value="more than 8">More than 8 hours</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="commitment">What would you do if your pet develops a medical condition requiring long-term care?</label>
+                    <textarea class="form-control" id="commitment" name="commitment" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="interview-slot">Select an Interview Slot:</label>
+                    <input type="datetime-local" class="form-control" id="interview-slot" name="interview_slot" required>
+                </div>
+                
+            
+                <!-- Final Agreement -->
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="agreement" name="agreement" required>
+                    <label class="form-check-label" for="agreement">
+                        I confirm that all the provided information is accurate and I am ready to provide a loving home.
+                    </label>
+                </div>
+            
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary btn-block">Submit Adoption Request</button>
+            </form>
+            
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const petId = urlParams.get("pet_id");
+
+            if (!petId) {
+                console.error("Pet ID not found in URL!");
+                return;
+            }
+
+            fetch(`../php/get_pet_details.php?pet_id=${petId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.name) {
+                        document.getElementById("pet-id").value = petId;
+                        document.getElementById("pet-name").value = data.name;
+                    }
+                })
+                .catch(error => console.error("Error fetching pet details:", error));
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Claws and Paws. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

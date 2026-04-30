@@ -1,0 +1,167 @@
+/* Reset body margins and paddings */
+body {
+    font-family: 'Garamond', serif;
+    background: linear-gradient(to right, #FBE9D0, #90AEAD);
+    margin: 0;
+    padding: 0;
+    color: #244855;
+}
+
+/* Hero Section */
+.hero-section {
+    background-image: url('images/pet-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 125px;
+    color: #244855;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Container */
+.container {
+    margin-top: -10px;
+    padding: 20px;
+}
+
+/* Pet Details Section */
+.pet-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+/* Card for Pet Information */
+.pet-info-card {
+    background: linear-gradient(to right, #90AEAD, #FBE9D0);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    max-width: 100%; /* Ensure the card doesn't stretch too far */
+    width: 45%; /* Adjust card width to fit nicely */
+    min-height: 380px; /* Set a minimum height to avoid stretching */
+}
+
+/* Pet Info Card Title */
+.pet-info-card h2 {
+    font-size: 2.8em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Pet Info Card Text */
+.pet-info-card p {
+    font-size: 1.5em;
+    line-height: 1.6;
+}
+
+/* Pet Photo */
+.pet-photo {
+    flex: 1;
+    max-width: 45%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;  /* Ensures the container wraps around the image */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevents overflowing content */
+}
+
+
+.pet-photo img {
+    width: auto;  /* Ensures natural width */
+    max-width: 100%; /* Prevents it from exceeding the container */
+    height: auto; /* Ensures it keeps its aspect ratio */
+    object-fit: contain; /* Ensures the image fits perfectly */
+    border-radius: 10px;
+}
+
+
+
+/* Pet Gallery */
+.pet-gallery {
+    display: flex;
+    flex-direction: row; /* Ensures images are placed in a row */
+    justify-content: center; /* Centers images */
+    gap: 20px; /* Adds space between images */
+    flex-wrap: nowrap; /* Prevents wrapping to the next line */
+    overflow-x: auto; /* Allows scrolling if needed */
+    padding: 10px;
+    white-space: nowrap; /* Prevents text elements from affecting layout */
+}
+
+.pet-gallery img {
+    width: 300px;  
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Ensures images don't resize */
+}
+
+
+
+
+/* Adopt Button */
+.adopt-button {
+    display: block;
+    width: 250px;
+    margin: 50px auto;
+    padding: 15px;
+    background-color: #244855;
+    color: #FBE9D0;
+    font-size: 1.5em;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.adopt-button:hover {
+    background-color: #E64833;
+    color: #244855;
+}
+
+/* Footer */
+footer {
+    background-color: #244855;
+    color: #FBE9D0;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pet-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pet-info-card {
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    .pet-photo img {
+        width: 100%;
+    }
+
+    .pet-gallery img {
+        width: 100%;
+        height: auto;
+    }
+}

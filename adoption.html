@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Adoption Portal</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts - Garamond -->
+  <link href="https://fonts.googleapis.com/css2?family=Garamond&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="http://localhost/PetCareProject/favicon.ico" type="image/x-icon">
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Garamond', serif;
+      background-color: #f8f9fa;
+      color: #333;
+      margin: 0;
+      transition: all 0.3s ease;
+    }
+
+    /* Sidebar */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 100%;
+      background-color: #244855;
+      padding: 20px 10px;
+      box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .side-menu a {
+      display: flex;
+      align-items: center;
+      padding: 12px 15px;
+      margin: 10px 0;
+      text-decoration: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 8px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .side-menu a:hover {
+      background-color: #E64833;
+      transform: translateX(5px);
+    }
+
+    .side-menu a i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    .main-content {
+      margin-left: 220px;
+      padding: 20px;
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #244855;
+    }
+
+    /* Pet Card */
+    .pet-card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .pet-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Dashboard Card */
+    .dashboard-card {
+      background-color: #90AEAD;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #244855;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Remove Button */
+    .remove-btn {
+      color: #E64833;
+      font-size: 1.2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .remove-btn:hover {
+      color: #FF0000;
+    }
+
+    /* Image Preview */
+    #image-preview {
+      max-width: 100%;
+      height: auto;
+      display: none;
+    }
+
+    /* Hover Effects */
+    .card:hover {
+      transform: translateY(-5px);
+      transition: all 0.3s ease;
+    }
+
+    /* Add Pet Form Styling */
+    .add-pet-form-container {
+      background-color: #FFFFFF;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+    }
+
+    .form-control {
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .btn-primary {
+      background-color: #E64833;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #FF5722;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="side-menu">
+    <a href="#home" onclick="scrollToSection('home')">
+      <i class="fas fa-home"></i> Home
+    </a>
+    <a href="#add-pet-form-section" onclick="scrollToSection('add-pet-form-section')">
+      <i class="fas fa-plus-circle"></i> Add Pet
+    </a>
+    <a href="#pets" onclick="scrollToSection('pets')">
+      <i class="fas fa-paw"></i> Available Pets
+    </a>
+    <a href="#dashboard" onclick="scrollToSection('dashboard')">
+      <i class="fas fa-chart-bar"></i> Dashboard
+    </a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Home Section -->
+    <section id="home">
+      <h1 class="section-title">Welcome to the Pet Adoption Portal</h1>
+      <p>Find your perfect companion and give them a loving home. Browse through our available pets, adopt one, and make a difference!</p>
+    </section>
+
+    <!-- Add Pet Form Section -->
+    <section id="add-pet-form-section" class="my-5 add-pet-form-container">
+      <h2 class="section-title">Add New Pet</h2>
+      <form id="add-pet-form">
+        <div class="mb-3">
+          <input type="text" class="form-control" id="pet-name" placeholder="Pet Name" required>
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control" id="pet-breed" placeholder="Pet Breed" required>
+        </div>
+        <div class="mb-3">
+          <input type="file" class="form-control" id="pet-image" accept="image/*" onchange="previewImage(event)" required>
+          <img id="image-preview" src="" alt="Image Preview" class="img-fluid mt-2">
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Add Pet</button>
+      </form>
+    </section>
+
+    <!-- Available Pets Section -->
+    <section id="pets" class="my-5">
+      <h2 class="section-title">Available Pets</h2>
+      <div class="row g-4" id="pets-list">
+        <!-- Pets will be dynamically added here -->
+      </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="my-5">
+      <h2 class="section-title">Dashboard</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card dashboard-card p-3 text-center">
+            <h5>Pets Available</h5>
+            <p class="fs-3" id="pets-available">0</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; 2024 Pet Adoption Portal. All Rights Reserved.
+  </footer>
+
+  <!-- JavaScript -->
+
+  
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', loadPets);
+    document.getElementById('add-pet-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        let formData = new FormData();
+        formData.append('name', document.getElementById('pet-name').value);
+        formData.append('breed', document.getElementById('pet-breed').value);
+        formData.append('image', document.getElementById('pet-image').files[0]);
+
+        fetch('add_pet.php', { method: 'POST', body: formData })
+        .then(response => response.json())
+        .then(data => { alert(data.message); if (data.status === "success") loadPets(); });
+    });
+
+    function loadPets() {
+        fetch('get_pets.php')
+        .then(response => response.json())
+        .then(data => {
+            let petsList = document.getElementById('pets-list');
+            petsList.innerHTML = "";
+            data.forEach(pet => {
+                petsList.innerHTML += `
+                    <div class="col-md-4">
+                        <div class="card pet-card">
+                            <img src="uploads/${pet.image}" class="card-img-top">
+                            <div class="card-body">
+                                <h5>${pet.name}</h5>
+                                <p>${pet.breed}</p>
+                                <button class="remove-btn" onclick="removePet(${pet.id})">
+                                    <i class="fas fa-trash"></i> Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('pets-available').innerText = data.length;
+        });
+    }
+
+    function removePet(id) {
+        if (!confirm("Are you sure you want to remove this pet?")) return;
+        fetch('delete_pet.php', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: `id=${id}` })
+        .then(response => response.json())
+        .then(data => { alert(data.message); if (data.status === "success") loadPets(); });
+    }
+  </script>
+
+
+<!-- Bootstrap JS (Optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

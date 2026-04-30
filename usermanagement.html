@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Garamond&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="http://localhost/PetCareProject/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="../css/adminsidestyles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>User Management</h1>
+  </header>
+<nav class="navigation">
+<a href="../adminside/superadmin.html">Dashboard</a>
+  <a href="../adminside/usermanagement.html" class="active">User Management</a>
+  <a href="../adminside/sheltermanagement.html">Shelter Management</a>
+  <a href="../adminside/donationmanagement.html" >Donations</a>
+  <a href="../adminside/petrescuemanagement.html" >Pet Rescue Management</a>
+  <a href="../adminside/petrescuemanagement.php">Pet Rescue Form Details Management</a>
+  <a href="../adminside/admin_pets.php" >Pet Adoption Management</a>
+  <a href="../adminside/adminadoptionprocessing.html" >Pet Adoption Requests Management</a>
+  <a href="../adminside/admin_volunteers.html" >Volunteer Management</a>
+
+
+</nav>
+  <section class="user-management">
+    <!-- Content of User Management Section here -->
+    <div class="dashboard">
+      <div class="info-card" id="totalUsersCard">
+        <h3>Total Users</h3>
+        <p id="totalUsers">0</p>
+      </div>
+      <div class="info-card" id="ngoNamesCard">
+        <h3>NGO Names</h3>
+        <p id="totalNGOs">3</p>
+      </div>
+      <div class="info-card" id="adoptedPetsCard">
+        <h3>Adopted Pets</h3>
+        <p id="totalAdoptedPets">0</p>
+      </div>
+    </div>
+    <div class="add-user-container"><center>
+      <button class="cta-btn" id="addUserBtn">Add User</button></center>
+    </div>
+
+    <h2><center>Manage Users</center></h2>
+    <table id="userTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>NGO</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- User data will load here -->
+      </tbody>
+    </table>
+
+    <div id="addUserModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Add New User</h3>
+        <form id="addUserForm">
+          <label for="name">Name:</label>
+          <input type="text" id="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" required>
+          <label for="ngo">NGO:</label>
+          <select id="ngo" required>
+            <option value="NGO1">NGO1</option>
+            <option value="NGO2">NGO2</option>
+            <option value="NGO3">NGO3</option>
+          </select>
+          <label for="pet">Select Pet:</label>
+          <select id="pet" required>
+            <option value="Pet1">Pet1</option>
+            <option value="Pet2">Pet2</option>
+            <option value="Pet3">Pet3</option>
+          </select>
+          <button type="submit" class="cta-btn">Add User</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Additional Sections (user details, ngo names, etc.) -->
+  </section>
+
+  <script src="js/usermanagement.js"></script> <!-- Changed to relative path -->
+</body>
+</html>
